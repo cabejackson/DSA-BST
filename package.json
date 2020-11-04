@@ -1,0 +1,14 @@
+{
+  "name": "bst-prac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bst.js",
+  "scripts": {
+    "test": "npm t"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "treeify": "^1.1.0"
+  }
+}
