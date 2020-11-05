@@ -141,6 +141,7 @@ class BST {
                 traverse(node.right)
             }
         }
+        traverse(this.root) //why on this.root?
         return result
 
     }
@@ -167,6 +168,7 @@ class BST {
                 traverse(node.right)
             }
         }
+        traverse(this.root)
         return result
 
 
@@ -197,6 +199,7 @@ class BST {
             // capture root node value
             result.push(node.value)
         }
+        traverse(this.root)
         return result
 
 
@@ -222,7 +225,7 @@ class BST {
             //takes first ietm out of the queue
             let currentNode = queue.shift()
             // take current node out of the queue and push it into the result array
-            result.push(currentNode)
+            result.push(currentNode.value) //push the current node VALUE, not the entire node
 
             //push left child node into the queue
             if (currentNode.left) {
@@ -233,6 +236,8 @@ class BST {
                 queue.push(currentNode.right)
             }
         }
+        return result
+
 
 
 
@@ -261,9 +266,37 @@ console.log("max:", tree.max())//39
 console.log("--------------------------")
 console.log("(t/f) does it conatain the number 2? \n Answer:", tree.contains(2))//true
 console.log("(t/f) does it conatain the number 222? \n Answer:", tree.contains(222))//false
+console.log("--------------------------")
 
 
 //checking dfs
+
+//in-order: 2, 3, 12, 15, 28, 39
+console.log("in order should match this: \n 2, 3, 12, 15, \n 28, 39 \n")
+console.log("in order", tree.dfsInOrder())
+console.log("--------------------------")
+
+// pre-order: 15, 3, 2, 12, 36, 28, 39
+console.log("pre order should match this: \n 15, 3, 2, 12, \n 36, 28, 39 \n")
+console.log("pre order", tree.dfsPreOrder())
+console.log("--------------------------")
+
+
+// post-order: 2, 12, 3, 28, 39, 36, 15
+console.log("post order should match this: \n 2, 12, 3, 28, \n 39, 36, 15 \n")
+console.log("post order", tree.dfsPostOrder())
+console.log("--------------------------")
+
+
+//checking bfs
+//breadth first search -- looks level by level
+//uses queue!
+//returns all the values by level
+//15, 3, 36, 2, 12, 28, 39
+console.log("breadth first search should match this: \n 15, 3, 36, 2, \n 12, 28, 39\n")
+console.log("breadth first search", tree.bfs())
+
+
 
 
 
